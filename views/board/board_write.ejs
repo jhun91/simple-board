@@ -2,10 +2,53 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>게시글 쓰기</title>
+    <style>
+        .btn-div {
+            text-align: right;
+            padding: 16px;
+        }
+    </style>
 </head>
 <body>
-    게시글을 쓸 수 있습니다.
+    <div>
+        
+        <div class="btn-div">
+            <button id="btn_cancel" class="w3-button w3-round w3-red">취소</button>
+            <button id="btn_save" class="w3-button w3-round w3-green">저장</button>
+        </div>
+
+        <form id="frm_write" class="w3-container w3-light-grey" action="/board/writeProc" method="POST">
+            <p>
+                작성자
+                <input type="text" class="w3-input w3-border-0" name="author">                
+            </p>
+            <p>
+                제목
+                <input type="text" class="w3-input w3-border-0" name="title">    
+            </p>
+            <p>
+                내용                
+                <textarea class="w3-input w3-border-0" cols="30" rows="10" name="contents"></textarea>
+            </p>
+        </form>    
+
+    </div>
+
+    <script>
+        // 저장 버튼 클릭 이벤트
+        document.querySelector('#btn_save').addEventListener('click', () => {
+            // form submit(전송)
+            document.querySelector('#frm_write').submit();            
+        });
+        
+        // 취소 버튼 클릭 이벤트
+        document.querySelector('#btn_cancel').addEventListener('click', () => {
+            location.href = '/board/list';
+        });
+    </script>  
+
 </body>
 </html>

@@ -1,11 +1,64 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>게시글 상세</title>
+    <style>
+        .btn-div {
+            text-align: right;
+            padding: 16px;
+        }
+    </style>
 </head>
+
 <body>
-    게시글 상세정보가 나타납니다.
+    <div class="w3-container">
+
+        <div class="btn-div">
+            <button id="btn_list" class="w3-button w3-round w3-grey">목록</button>
+            <button id="btn_update" class="w3-button w3-round w3-green">수정</button>
+            <button id="btn_delete" class="w3-button w3-round w3-red">삭제</button>
+        </div>
+
+
+        <p>
+            작성자
+            <br>
+            <%= board[0].AUTHOR %>
+        </p>
+        <p>
+            제목
+            <br>
+            <%= board[0].TITLE %>
+        </p>
+        <p>
+            내용
+            <br>
+            <%= board[0].CONTENTS %>
+        </p>
+
+    </div>
+
+    <script>
+        // 목록 버튼 클릭 이벤트
+        document.querySelector('#btn_list').addEventListener('click', () => {
+            location.href = '/board/list';
+        });
+
+        // 수정 버튼 클릭 이벤트
+        document.querySelector('#btn_update').addEventListener('click', () => {
+            location.href = '/board/list';
+        });
+
+        // 삭제 버튼 클릭 이벤트
+        document.querySelector('#btn_delete').addEventListener('click', () => {
+            location.href = '/board/list';
+        });
+    </script>
+
 </body>
+
 </html>
